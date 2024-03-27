@@ -1,31 +1,26 @@
-@extends('layouts.user')
- 
-@section('title', 'Profile Settings')
- 
-@section('contents')
-<header class="bg-white shadow">
-    <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-        <h1 class="text-3xl font-bold text-gray-900">
-            Profile
-        </h1>
-    </div>
-</header>
-<hr />
+
 <form method="POST" enctype="multipart/form-data" action="">
-    <div>
-        <label class="label">
-            <span class="text-base label-text">Name</span>
-        </label>
-        <input name="name" type="text" value="{{ auth()->user()->name }}" class="w-full input input-bordered" />
+
+<div class="text">
+        <h1>User Profile</h1>
     </div>
-    <div>
-        <label class="label">
-            <span class="text-base label-text">Email</span>
-        </label>
-        <input name="email" type="text" value="{{ auth()->user()->email }}" class="w-full input input-bordered" />
+ <div class="container">
+<div class="foto">
+    <img src="asset/img.jpeg" alt="" class="img"><br>
+</div>
+    <div class="content">
+        <div class="input">
+            <label for="nama">Nama:</label>
+            <input type="text" value="{{ auth()->user()->name }}" class="nama"><br>
+            <label for="nama">Phone:</label>
+            <input type="text" class="phone"><br>
+            <label for="nama">Email:</label>
+            <input type="email" value="{{ auth()->user()->email }}"  class="email"><br>
+            <button type="submit" class="btn btn-block">Save Profile</button>
+        </div>
     </div>
-    <div class="mt-6">
-        <button type="submit" class="btn btn-block">Save Profile</button>
+
     </div>
+
+    
 </form>
-@endsection
