@@ -1,10 +1,10 @@
 
-<form method="POST" enctype="multipart/form-data" action="">
+<form method="POST" enctype="multipart/form-data" >
     <div>
         <label class="label">
             <span class="text-base label-text">Name</span>
         </label>
-        <input name="name" type="text" value="{{ auth()->user()->name }}" class="w-full input input-bordered" />
+        <input name="name" type="text" value="{{ auth()->user()->name }}" class="w-full input input-bordered" /><br>
     </div>
     <div>
         <label class="label">
@@ -16,4 +16,3 @@
         <button type="submit" class="btn btn-block">Save Profile</button>
     </div>
 </form>
-@endsection

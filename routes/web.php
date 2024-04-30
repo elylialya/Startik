@@ -37,7 +37,14 @@ Route::controller(AuthController::class)->group(function () {
 //Normal Users Routes List
 Route::middleware(['auth', 'user-access:user'])->group(function () {
     Route::get('/home', [HomeController::class, 'index'])->name('home');
-    Route::get('/profile', [UserController::class, 'userprofile'])->name('profile');
+    Route::get('/userprofile', [UserController::class, 'index'])->name('user.profile');
+Route::post('/profile', [UserController::class, 'store'])->name('user.profile.store');
+Route::get('/transaksi', [HomeController::class, 'transaksi'])->name('transaksi');
+Route::get('/keranjang', [HomeController::class, 'keranjang'])->name('keranjang');
+Route::get('/detailproduk', [HomeController::class, 'detailproduk'])->name('detailproduk');
+
+
+
 });
  
 //Admin Routes List

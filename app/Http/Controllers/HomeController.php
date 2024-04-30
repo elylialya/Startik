@@ -16,8 +16,27 @@ class HomeController extends Controller
         return view('home');
     }
  
+
+    public function transaksi()
+    {
+        return view('transaksi');
+
+    }
+
+    public function keranjang()
+    {
+        return view('keranjang');
+        
+    }
+
+    public function detailproduk()
+    {
+        return view('detailproduk');
+        
+    }
     public function adminHome()
     {
         return view('dashboard');
     }
+
 }
