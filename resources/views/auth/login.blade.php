@@ -26,7 +26,7 @@
                 <input type="password" name="password" id="password" required=""><span>Password</span>
             </div>
             <div class="Forgot">
-                <a>Belum Memiliki akun?</a> <span><a href="register.html">Daftar Sekarang</a>
+                <a>Belum Memiliki akun?</a> <span><a href="{{ route('register') }}">Daftar Sekarang</a>
             </div>
 
             <!--button-->
