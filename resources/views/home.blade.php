@@ -34,6 +34,9 @@
                 <div class="user">
                     <a href="{{ route('user.profile') }}"><i class="fa-solid fa-user"></i></a>
                 </div>
+                <div class="cart">
+                    <a href="{{ route('keranjang') }}"><i class="fa-solid fa-cart-shopping"></i>
+               </div>
             </div>
         </div>
 

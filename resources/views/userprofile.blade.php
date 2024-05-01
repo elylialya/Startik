@@ -104,15 +104,12 @@
     {{ __('Upload Profile') }}
    
 </button>
-
-<div class="btn1">
-<a href="{{ route('home') }}"><button type="button" class="btn1">kembali</button></a>
-</div>
-
-
-
         </div>
     </div>
     </form>
+    
+    <div class="btn1">
+	<a href="{{ route('home') }}"><button type="button" class="btn1">kembali</button></a>
+	</div>
 </body>
 </html>

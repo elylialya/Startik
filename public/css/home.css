@@ -111,6 +111,15 @@ section nav li a {
     color: #089da1;
 }
 
+.cart {
+    margin-right: 0px;
+    margin-left: 25px;
+}
+
+.cart a {
+    color:#089da1;
+}
+
 .input-group {
     margin-top: 40px;
     margin-left: 350px;

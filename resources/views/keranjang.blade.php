@@ -77,7 +77,7 @@
                         </div>
                     </div>
                     <div class="col-md-12 pt-4 pb-4">
-                        <button type="button" class="btn btn-success check-out"><a href="transaksi.html">Lakukan Pembayaran</a></button>
+                    <button type="button" class="btn btn-success check-out"><a href="{{ route('transaksi') }}">Lakukan Pembayaran</a></button>
                     </div>
                 </div>
             </div>
