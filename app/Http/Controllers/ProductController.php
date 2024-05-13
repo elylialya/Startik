@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
  
 use Illuminate\Http\Request;
 use App\Models\Product;
- 
+use Illuminate\Support\Facades\Storage;
+
 class ProductController extends Controller
 {
     /**
@@ -30,7 +31,19 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        Product::create($request->all());
+        $validated = $request->validate([
+            'title' => 'required',
+            'price' => 'required',
+            'product_code' => 'required',
+            'description' => 'required',
+            'image' => 'required'
+        ]);
+
+        if($request->file('image')) {
+            $validated['image'] = $request->file('image')->store('product-images');
+        } 
+
+        Product::create($validated);
  
         return redirect()->route('admin/products')->with('success', 'Product added successfully');
     }
@@ -58,11 +71,25 @@ class ProductController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, $id)
     {
-        $product = Product::findOrFail($id);
- 
-        $product->update($request->all());
+        $rules = [
+            'title' => 'required',
+            'price' => 'required',
+            'product_code' => 'required',
+            'description' => 'required',
+        ];
+
+        $validated = $request->validate($rules);
+
+        if($request->file('image')) {
+            if($request->oldImage) {
+                Storage::delete($request->oldImage);
+            }
+            $validated['image'] = $request->file('image')->store('product-images');
+        }
+
+        Product::where('id', $id)->update($validated); 
  
         return redirect()->route('admin/products')->with('success', 'product updated successfully');
     }
