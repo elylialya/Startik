@@ -36,15 +36,14 @@ Route::controller(AuthController::class)->group(function () {
 Route::get('/transaksi', [HomeController::class, 'transaksi'])->name('transaksi');
  
 //Normal Users Routes List
-Route::middleware(['auth', 'user-access:user'])->group(function () {
-    Route::get('/home', [HomeController::class, 'index'])->name('home');
-    Route::get('/userprofile', [UserController::class, 'index'])->name('user.profile');
+Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::post('/profile', [UserController::class, 'store'])->name('user.profile.store');
 Route::get('/keranjang', [HomeController::class, 'keranjang'])->name('keranjang');
 Route::get('/detailproduk', [HomeController::class, 'detailproduk'])->name('detailproduk');
 
 
-
+Route::middleware(['auth', 'user-access:user'])->group(function () {
+    Route::get('/userprofile', [UserController::class, 'index'])->name('user.profile');
 });
  
 //Admin Routes List
