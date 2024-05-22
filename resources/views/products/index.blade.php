@@ -21,6 +21,7 @@
                 <th scope="col" class="px-6 py-3">Harga</th>
                 <th scope="col" class="px-6 py-3">Produk Kode</th>
                 <th scope="col" class="px-6 py-3">Deskripsi</th>
+                <th scope="col" class="px-6 py-3">Gambar</th>
                 <th scope="col" class="px-6 py-3">Keterangan</th>
             </tr>
         </thead>
@@ -42,6 +43,9 @@
                 </td>
                 <td>
                     {{ $rs->description }}
+                </td>
+                <td>
+                    <img src="{{ asset('storage/' . $rs->image) }}" alt="{{ $rs->title }}" class="w-10 h-10">
                 </td>
                 <td class="w-36">
                     <div class="h-14 pt-5">

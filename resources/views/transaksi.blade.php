@@ -9,6 +9,7 @@
 <body>
     <h1>Transaksi</h1>
     <div class="container">
+        <p id="popup" style="color: green">Transaksi Sukses</p>
     <div class="y">
     <div class="img">
         <img src="obat 1.jpg">
@@ -29,8 +30,10 @@
 
     <div class="button">
         <button><i class="fa-solid fa-cart-shopping"></i> Total Pembayaran</button>
-        <button><i class="fa-solid fa-cart-shopping"></i> Buat Pesanan</button>
+        <button onclick="saveTransaction()"><i class="fa-solid fa-cart-shopping"></i> Buat Pesanan</button>
     </div>
 </div>
+
+<script src="js/transaksi.js"></script>
 </body>     
 </html>

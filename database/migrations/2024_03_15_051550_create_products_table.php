@@ -1,4 +1,3 @@
-//database/migrations/create_products_table.php
 <?php
 
 use Illuminate\Database\Migrations\Migration;
@@ -18,6 +17,7 @@ $table->string('title');
 $table->string('price');
 $table->string('product_code');
 $table->text('description');
+$table->string('image');
 $table->timestamps();
 });
 }

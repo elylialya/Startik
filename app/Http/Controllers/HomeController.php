@@ -1,7 +1,8 @@
 <?php
  
 namespace App\Http\Controllers;
- 
+
+use App\Models\Product;
 use Illuminate\Http\Request;
  
 class HomeController extends Controller
@@ -31,7 +32,10 @@ class HomeController extends Controller
 
     public function detailproduk()
     {
-        return view('detailproduk');
+        $datas = Product::orderBy('created_at', 'DESC')->get();
+        return view('detailproduk', [
+            'datas' => $datas
+        ]);
         
     }
     public function adminHome()
