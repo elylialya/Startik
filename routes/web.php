@@ -52,6 +52,13 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
     Route::get('/admin/home', [HomeController::class, 'adminHome'])->name('admin/home');
  
     Route::get('/admin/profile', [AdminController::class, 'profilepage'])->name('admin/profile');
+    Route::get('/admin/profile', [AdminController::class, 'user'])->name('admin/profile');
+    Route::get('/admin/profile/create', [AdminController::class, 'create'])->name('admin/profile/create');
+    Route::post('/admin/profile/store', [AdminController::class, 'store'])->name('admin/profile/store');
+    Route::get('/admin/profile/show/{id}', [AdminController::class, 'show'])->name('admin/profile/show');
+    Route::get('/admin/profile/edit/{id}', [AdminController::class, 'edit'])->name('admin/profile/edit');
+    Route::put('/admin/profile/edit/{id}', [AdminController::class, 'update'])->name('admin/profile/update');
+    Route::delete('/admin/profile/destroy/{id}', [AdminController::class, 'destroy'])->name('admin/profile/destroy');
  
     Route::get('/admin/products', [ProductController::class, 'index'])->name('admin/products');
     Route::get('/admin/products/create', [ProductController::class, 'create'])->name('admin/products/create');
