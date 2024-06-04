@@ -1,5 +1,6 @@
-function saveTransaction() {
-    let popup = document.getElementById('popup')
+function totalHarga() {
+    let harga = document.getElementById('harga').value
+    let jumlah = document.getElementById('jumlah').value
 
-    popup.style.display = 'block'
+    document.getElementById('total').value = harga * jumlah
 }

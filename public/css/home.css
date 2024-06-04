@@ -96,7 +96,7 @@ section nav li a {
 .wrap {
     width: 30%;
     position: absolute;
-    top: 50%;
+    top: 45%;
     margin-left: 200px;
     transform: translate(-50%, -50%);
 }

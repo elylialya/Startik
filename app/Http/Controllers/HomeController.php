@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use App\Models\Transaction;
 use Illuminate\Http\Request;
  
 class HomeController extends Controller
@@ -14,13 +15,19 @@ class HomeController extends Controller
  
     public function index()
     {
-        return view('home');
+        $products = Product::get();
+        return view('home', [
+            'products' => $products
+        ]);
     }
  
 
-    public function transaksi()
+    public function transaksi($id)
     {
-        return view('transaksi');
+        $data = Product::where('id', $id)->first();
+        return view('transaksi', [
+            'data' => $data
+        ]);
 
     }
 
@@ -30,17 +37,31 @@ class HomeController extends Controller
         
     }
 
-    public function detailproduk()
+    public function detailproduk(Request $request)
     {
-        $datas = Product::orderBy('created_at', 'DESC')->get();
+        $productsQuery = Product::query();
+
+        if ($request->input('barang')) {
+            $productsQuery->where('title', 'like', '%' . $request->input('barang') . '%');
+        }
+
+        if ($request->input('harga')) {
+            $productsQuery->where('price', 'like', '%' . $request->input('harga') . '%');
+        }
+
+        $datas = $productsQuery->get();
+
         return view('detailproduk', [
             'datas' => $datas
         ]);
-        
     }
+
     public function adminHome()
     {
-        return view('dashboard');
+        $transactions = Transaction::get();
+        return view('dashboard', [
+            'transactions' => $transactions
+        ]);
     }
 
 }

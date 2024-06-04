@@ -16,26 +16,27 @@
 
 <body>
 
-    <h1>Detail Produk</h1>
-    <div class="image">
-        <img src="https://www.bayer.com/sites/default/files/styles/3_1_aspect_ratio_large/public/2022-02/Product---Consumer-Health-%28IND-_-ENG%29%20%281%29.png?h=d88a1055&itok=2PUD60d0"
-            width="65%" height="50%">
+
     </div>
     <div class="content">
-        <div class="input">
-            <input type="text" class="nama-produk" placeholder="Nama Produk">
-            <input type="number" class="harga" placeholder="Harga">
-        </div>
+        <form method="get" class="input">
+            @method('get')
+            @csrf
+            <input type="text" class="nama-produk" id="barang" name="barang" placeholder="Nama Produk">
+            <input type="number" class="harga" id="harga" name="harga" placeholder="Harga">
+            <button>Cari</button>
+        </form>
         <div class="text">
-            <div class="row" style=" position: relative;left: 215px; ">
+            <div class="row" style="position: relative; left: 215px; ">
                 @foreach ($datas as $data)
                     <div class="col-sm-6" style="width: 22%;">
                         <div class="card" style="height: 420px;">
-                            <img src="{{ asset('storage/' . $data->image) }}" class="card-img-top" alt="..." style="width: 60%;">
+                            <img src="{{ asset('storage/' . $data->image) }}" class="card-img-top" alt="..."
+                                style="width: 60%;">
                             <div class="card-body">
-                                <h5 class="card-title">{{ $data->description }}</h5>
-                                <p> {{ $data->title }} <br> Rp. {{ $data->price }}</p>
-                                <a href=""><i class="fa-solid fa-cart-shopping"></i> Keranjang</a>
+                                <h5 class="card-title">{{ $data->title }}</h5>
+                                <p> {{ $data->description }} <br> Rp. {{ $data->price }}</p>
+                                <a href="/transaksi/{{ $data->id }}"><i class="fa-solid fa-cart-shopping"></i> Keranjang</a>
                             </div>
                         </div>
                     </div>

@@ -21,7 +21,7 @@
         <ul>
             <li><a href="#">Beranda</a></li>
             <li><a href="#">Hubungi kami</a></li>
-            <li> <a href="{{ route('transaksi') }}">Transaksi</a></li>
+            <li> <a href="/transaksi/1">Transaksi</a></li>
             <li> <a href="{{ route('detailproduk') }}">Produk</a></li>
             <li><a href="#">Bantuan</a></li>
         </ul>
@@ -130,309 +130,48 @@
 
     <div class="featured_obat_box">
 
+        @foreach ($products as $i)            
         <div class="featured_obat_card">
 
             <div class="featurde_obat_img">
-                <img src="asset/mylanta.jpg">
+                <img src="{{ asset('storage/' . $i->image) }}">
             </div>
 
             <div class="featurde_obat_tag">
-                <h4>MYLANTA CAIR 150ML</h4>
+                <h4>{{ $i->title }}</h4>
                 <p class="obat_price">
-                    Rp 47.580<sub><del>Rp 50.000</del></sub></p>
-                    <a href="{{ route('transaksi') }}" class="f_btn">Beli</a>
-                    <a href="{{ route('keranjang') }}" class="f_btn">Keranjang</a>
+                    Rp {{ $i->price }}</p>
+                    <a href="/transaksi/{{ $i->id }}" class="f_btn">Beli</a>
+                    {{-- <a href="{{ " class="f_btn">Keranjang</a> --}}
             </div>
 
         </div>
-
-        <div class="featured_obat_card">
-
-            <div class="featurde_obat_img">
-                <img src="asset/promag.jpg">
-            </div>
-
-            <div class="featurde_obat_tag">
-                <h4>Promag Tablet</h4>
-                <p class="obat_price">Rp 7.987<sub><del>Rp 9.500</del></sub></p>
-                <a href="{{ route('transaksi') }}" class="f_btn">Beli</a>
-                    <a href="{{ route('keranjang') }}" class="f_btn">Keranjang</a>
-            </div>
-
-        </div>
-
-        <div class="featured_obat_card">
-
-            <div class="featurde_obat_img">
-                <img src="asset/neurobion.jpg">
-            </div>
-
-            <div class="featurde_obat_tag">
-                <h4>Neurobion Forte Fc Tablet </h4>
-                <p class="obat_price">Rp 50.511<sub><del>Rp 53.100</del></sub></p>
-                <a href="{{ route('transaksi') }}" class="f_btn">Beli</a>
-                    <a href="{{ route('keranjang') }}" class="f_btn">Keranjang</a>
-            </div>
-
-        </div>
-
-        <div class="featured_obat_card">
-
-            <div class="featurde_obat_img">
-                <img src="asset/sakatonik.jpg">
-            </div>
-
-            <div class="featurde_obat_tag">
-                <h4>Sakatonik Activ Syr 100ml</h4>
-                <p class="obat_price">Rp 15.079<sub><del>Rp 16.600,</del></sub></p>
-                <a href="{{ route('transaksi') }}" class="f_btn">Beli</a>
-                    <a href="{{ route('keranjang') }}" class="f_btn">Keranjang</a>
-            </div>
-
-        </div>
-
-        <div class="featured_obat_card">
-
-            <div class="featurde_obat_img">
-                <img src="asset/paracetamol.webp">
-            </div>
-
-            <div class="featurde_obat_tag">
-                <h4>Paracetamol Rama 500mg Kaplet</h4>
-                <p class="obat_price">Rp 4.402<sub><del>Rp 5.500,</del></sub></p>
-                <a href="{{ route('transaksi') }}" class="f_btn">Beli</a>
-                    <a href="{{ route('keranjang') }}" class="f_btn">Keranjang</a>
-            </div>
-
-        </div>
-
-        <div class="featured_obat_card">
-
-            <div class="featurde_obat_img">
-                <img src="asset/salbutamol sirup.webp">
-            </div>
-
-            <div class="featurde_obat_tag">
-                <h4>Lasal Exp Sirup 100ml</h4>
-                <p class="obat_price">Rp 61.710<sub><del>Rp 63.450</del></sub></p>
-                <a href="{{ route('transaksi') }}" class="f_btn">Beli</a>
-                    <a href="{{ route('keranjang') }}" class="f_btn">Keranjang</a>
-            </div>
-
-        </div>
-
-        <div class="featured_obat_card">
-
-            <div class="featurde_obat_img">
-                <img src="asset/sangobion2.jpg">
-            </div>
-
-            <div class="featurde_obat_tag">
-                <h4>Sangobion Kapsul </h4>
-                <p class="obat_price">Rp 21.174<sub><del>Rp 22.500</del></sub></p>
-                <a href="{{ route('transaksi') }}" class="f_btn">Beli</a>
-                    <a href="{{ route('keranjang') }}" class="f_btn">Keranjang</a>
-            </div>
-
-        </div>
-
-        <div class="featured_obat_card">
-
-            <div class="featurde_obat_img">
-                <img src="asset/vitamin b.webp">
-            </div>
-
-            <div class="featurde_obat_tag">
-                <h4>Vitamin B Comp Ipi Tablet</h4>
-                <p class="obat_price">Rp 6.516<sub><del>Rp 7.250</del></sub></p>
-                <a href="{{ route('transaksi') }}" class="f_btn">Beli</a>
-                    <a href="{{ route('keranjang') }}" class="f_btn">Keranjang</a>
-            </div>
-
-        </div>
-
-        <div class="featured_obat_card">
-
-            <div class="featurde_obat_img">
-                <img src="asset/panadol.png">
-            </div>
-
-            <div class="featurde_obat_tag">
-                <h4>Panadol Extra Tablet</h4>
-                <p class="obat_price">Rp 14.623<sub><del>Rp 15.000</del></sub></p>
-                <a href="{{ route('transaksi') }}" class="f_btn">Beli</a>
-                    <a href="{{ route('keranjang') }}" class="f_btn">Keranjang</a>
-            </div>
-
-        </div>
-
-        <div class="featured_obat_card">
-
-            <div class="featurde_obat_img">
-                <img src="asset/sanmol.jpg">
-            </div>
-
-            <div class="featurde_obat_tag">
-                <h4>Sanmol Sirup 120mg/5ml</h4>
-                <p class="obat_price">Rp 21.938<sub><del>Rp 22.300</del></sub></p>
-                <a href="{{ route('transaksi') }}" class="f_btn">Beli</a>
-                    <a href="{{ route('keranjang') }}" class="f_btn">Keranjang</a>
-            </div>
-
-        </div>
+        @endforeach
 
     </div>
     <!--end Penawaran Obat-->
 
     <!--Produk Obat Terlaris-->
 
-    <div class="featured_boks">
-        <h1>Produk Obat Terlaris</h1>
+    {{-- <div class="featured_boks"> --}}
+        {{-- <h1>Produk Obat Terlaris</h1> --}}
 
-        <div class="featured_obat_box">
+        {{-- @foreach ($products as $i)             --}}
+        {{-- <div class="featured_obat_card">
 
-            <div class="featured_obat_card">
-
-                <div class="featurde_obat_img">
-                    <img src="asset/sanmol.jpg">
-                </div>
-
-                <div class="featurde_obat_tag">
-                    <h4>Sanmol Sirup 120mg/5ml</h4>
-                    <p class="obat_price">Rp 21.938</p>
-                    <a href="{{ route('transaksi') }}" class="f_btn">Beli</a>
-                </div>
-
+            <div class="featurde_obat_img">
+                <img src="asset/mylanta.jpg" width="120">
             </div>
 
-            <div class="featured_obat_card">
-
-                <div class="featurde_obat_img">
-                    <img src="asset/panadol.png">
-                </div>
-
-                <div class="featurde_obat_tag">
-                    <h4>Panadol Extra Tablet</h4>
-                    <p class="obat_price">Rp 14.623</p>
-                    <a href="{{ route('transaksi') }}" class="f_btn">Beli</a>
-                </div>
-
-            </div>
-
-            <div class="featured_obat_card">
-
-                <div class="featurde_obat_img">
-                    <img src="asset/vitamin b.webp">
-                </div>
-
-                <div class="featurde_obat_tag">
-                    <h4>Vitamin B Comp Ipi Tablet</h4>
-                    <p class="obat_price">Rp 6.516</p>
-                    <a href="{{ route('transaksi') }}" class="f_btn">Beli</a>
-                </div>
-
-            </div>
-
-            <div class="featured_obat_card">
-
-                <div class="featurde_obat_img">
-                    <img src="asset/paracetamol.webp">
-                </div>
-
-                <div class="featurde_obat_tag">
-                    <h4>Paracetamol Rama 500mg Kaplet</h4>
-                    <p class="obat_price">Rp 4.402</p>
-                    <a href="{{ route('transaksi') }}" class="f_btn">Beli</a>
-                </div>
-
-            </div>
-
-
-            <div class="featured_obat_card">
-
-                <div class="featurde_obat_img">
-                    <img src="asset/promag.jpg">
-                </div>
-
-                <div class="featurde_obat_tag">
-                    <h4>Promag Tablet</h4>
-                    <p class="obat_price">Rp 7.987</p>
-                     <a href="{{ route('transaksi') }}" class="f_btn">Beli</a>
-                </div>
-
-            </div>
-
-            <div class="featured_obat_card">
-
-                <div class="featurde_obat_img">
-                    <img src="asset/neurobion.jpg">
-                </div>
-
-                <div class="featurde_obat_tag">
-                    <h4>Neurobion Forte Fc Tablet </h4>
-                    <p class="obat_price">Rp 50.511</p>
-                    <a href="{{ route('transaksi') }}" class="f_btn">Beli</a>
-                </div>
-
-            </div>
-
-            <div class="featured_obat_card">
-
-                <div class="featurde_obat_img">
-                    <img src="asset/sakatonik.jpg">
-                </div>
-
-                <div class="featurde_obat_tag">
-                    <h4>Sakatonik Activ Syr 100ml</h4>
-                    <p class="obat_price">Rp 15.079</p>
-                    <a href="{{ route('transaksi') }}" class="f_btn">Beli</a>
-                </div>
-
-            </div>
-
-            <div class="featured_obat_card">
-
-                <div class="featurde_obat_img">
-                    <img src="asset/paracetamol.webp">
-                </div>
-
-                <div class="featurde_obat_tag">
-                    <h4>Paracetamol Rama 500mg Kaplet</h4>
-                    <p class="obat_price">Rp 4.402</p>
-                    <a href="{{ route('transaksi') }}" class="f_btn">Beli</a>
-                </div>
-
-            </div>
-
-            <div class="featured_obat_card">
-
-                <div class="featurde_obat_img">
-                    <img src="asset/salbutamol sirup.webp">
-                </div>
-
-                <div class="featurde_obat_tag">
-                    <h4>Lasal Exp Sirup 100ml</h4>
-                    <p class="obat_price">Rp 61.710</p>
-                    <a href="{{ route('transaksi') }}" class="f_btn">Beli</a>
-                </div>
-
-            </div>
-
-            <div class="featured_obat_card">
-
-                <div class="featurde_obat_img">
-                    <img src="asset/sangobion2.jpg">
-                </div>
-
-                <div class="featurde_obat_tag">
-                    <h4>Sangobion Kapsul </h4>
-                    <p class="obat_price">Rp 21.174</p>
-                    <a href="{{ route('transaksi') }}" class="f_btn">Beli</a>
-                </div>
-
-            </div>
-
-        </div>
+            <div class="featurde_obat_tag">
+                <h4>{{ $i->title }}</h4>
+                <p class="obat_price"> --}}
+                    {{-- Rp {{ $i->price }}</p> --}}
+                    {{-- <a href="/transaksi/{{ $i->id }}" class="f_btn">Beli</a> --}}
+                    {{-- <a href="{{ " class="f_btn">Keranjang</a> --}}
+            {{-- </div> --}}
+        {{-- </div> --}}
+        {{-- @endforeach --}}
 
         <!--end produk obat terlaris-->
 

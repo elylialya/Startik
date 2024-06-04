@@ -6,6 +6,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\UserController;
 /*
 |--------------------------------------------------------------------------
@@ -33,14 +34,14 @@ Route::controller(AuthController::class)->group(function () {
  
     Route::get('logout', 'logout')->middleware('auth')->name('logout');
 });
-Route::get('/transaksi', [HomeController::class, 'transaksi'])->name('transaksi');
+Route::get('/transaksi/{id}', [HomeController::class, 'transaksi'])->name('transaksi');
  
 //Normal Users Routes List
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::post('/profile', [UserController::class, 'store'])->name('user.profile.store');
 Route::get('/keranjang', [HomeController::class, 'keranjang'])->name('keranjang');
 Route::get('/detailproduk', [HomeController::class, 'detailproduk'])->name('detailproduk');
-
+Route::post('/transaction', [TransactionController::class, 'store']);
 
 Route::middleware(['auth', 'user-access:user'])->group(function () {
     Route::get('/userprofile', [UserController::class, 'index'])->name('user.profile');
@@ -59,4 +60,5 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
     Route::get('/admin/products/edit/{id}', [ProductController::class, 'edit'])->name('admin/products/edit');
     Route::put('/admin/products/edit/{id}', [ProductController::class, 'update'])->name('admin/products/update');
     Route::delete('/admin/products/destroy/{id}', [ProductController::class, 'destroy'])->name('admin/products/destroy');
+
 });
